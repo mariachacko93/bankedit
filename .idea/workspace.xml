@@ -1,7 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="e4158b1b-c274-4b39-a2e1-a7bff9d8a994" name="Default Changelist" comment="" />
+    <list default="true" id="e4158b1b-c274-4b39-a2e1-a7bff9d8a994" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyBank/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/MyBank/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Profiles/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/Profiles/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Profiles/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Profiles/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/Profiles/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Profiles/templates/profiles/createprofile.html" beforeDir="false" afterPath="$PROJECT_DIR$/Profiles/templates/profiles/createprofile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Profiles/templates/profiles/deleteprofile.html" beforeDir="false" afterPath="$PROJECT_DIR$/Profiles/templates/profiles/deleteprofile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Profiles/templates/profiles/updateprofile.html" beforeDir="false" afterPath="$PROJECT_DIR$/Profiles/templates/profiles/updateprofile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Profiles/templates/profiles/viewprofile.html" beforeDir="false" afterPath="$PROJECT_DIR$/Profiles/templates/profiles/viewprofile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Profiles/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Profiles/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Profiles/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Profiles/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/accounts/templates/accounts/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/templates/accounts/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/accounts/templates/accounts/homemain.html" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/templates/accounts/homemain.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/accounts/templates/accounts/signin.html" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/templates/accounts/signin.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/accounts/templates/accounts/signup.html" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/templates/accounts/signup.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/accounts/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/accounts/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -15,7 +43,11 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1oVVGADfuFzVpBCf7iygBAQdFZ7" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -23,7 +55,7 @@
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$/PycharmProjects/dajngofull/customized class/recipeclassbasedview" />
+    <property name="last_opened_file_path" value="$USER_HOME$/PycharmProjects/dajngofull/customized class/RecipeProject" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -46,14 +78,26 @@
     </task>
     <servers />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
   <component name="WindowStateProjectService">
     <state x="442" y="166" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1613468338560">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="442" y="166" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728@0.0.1366.728" timestamp="1613468338560" />
-    <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1613470325639">
+    <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1613556482147">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1613470325639" />
+    <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1613556482147" />
   </component>
 </project>

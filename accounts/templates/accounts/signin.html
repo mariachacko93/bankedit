@@ -3,14 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <title>SignIn</title>
+    <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
 </head>
 <body>
-SignIn here!!!
+<div class="container">
+<h2>SignIn Here!!!</h2>
  <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit">Sign Up</button>
-  </form>
+    <button type="submit">Sign In</button>
 
+     <hr>
+     If you dont have an account,please click here to <a href="{%url 'signup'%}">Create Account</a>
+  </form>
+</div>
 </body>
 </html>

@@ -3,14 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <title>viewprofile</title>
+    <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
 </head>
 <body>
-your provife view
- <form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Update</button>
-  </form>
+<h2>Your provife view</h2>
+<hr>
+
+<table style="width:100%;border-spacing:5px;border:1px solid black;">
+    <tr>
+        <th>Name:</th> <td>{{request.user.first_name}} {{request.user.last_name}}</td></tr>
+  <tr>
+        <th>Address:</th><td> {{object.address}}</td>
+</tr>
+    <tr>
+        <th>Date of birth:</th><td>{{object.date_of_birth}}</td>
+    </tr>
+    <tr>
+        <th>Email_id:</th><td>{{object.email_id}}</td>
+</tr>
+   
+    <tr>
+        <th>Phonenumber:</th><td>{{object.phonenumber}}</td>
+</tr>
+</table>
+<a href="{%url 'home'%}">back to Home</a>
 
 </body>
 </html>

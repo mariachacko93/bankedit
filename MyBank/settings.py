@@ -72,6 +72,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'MyBank.wsgi.application'
 
+LOGOUT_REDIRECT_URL = '/bank/homemain/'
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases

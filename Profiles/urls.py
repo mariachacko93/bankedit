@@ -17,11 +17,13 @@ Including another URLconf
 
 from django.urls import path
 
-from Profiles.views import CreateProfile,success,UpdateprofileView,Deleteprofile
+from Profiles.views import CreateProfile,success,UpdateprofileView,Deleteprofile,ViewProfile
 
 urlpatterns = [
     path("createprofile/",CreateProfile.as_view(),name="createprofile"),
     path("updateprofile/<int:pk>/", UpdateprofileView.as_view(), name="updateprofile"),
     path("success/",success,name="success"),
-    path("delete/<slug:pk>/",Deleteprofile.as_view(),name="delete"),
+    path("delete/<int:pk>/",Deleteprofile.as_view(),name="delete"),
+    path("viewprofile/<int:pk>/", ViewProfile.as_view(), name="viewprofile"),
+
 ]
