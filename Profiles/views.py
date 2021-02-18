@@ -1,5 +1,6 @@
 from django.contrib.auth import logout
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 from django.views import View
@@ -28,7 +29,6 @@ class CreateProfile(CreateView):
 def success(request):
     return render(request,"profiles/success.html")
 
-#
 class UpdateprofileView(UpdateView):
     model=createProfileModel
     fields = ["address","date_of_birth","email_id","phonenumber"]
@@ -37,12 +37,12 @@ class UpdateprofileView(UpdateView):
     success_url = reverse_lazy('home')
     template_name = "profiles/updateprofile.html"
 # #
-#
 class Deleteprofile(DeleteView):
     model = User
     fields="__all__"
     success_url = reverse_lazy('homemain')
     template_name = "profiles/deleteprofile.html"
+
 
 class ViewProfile(DetailView):
     model = createProfileModel

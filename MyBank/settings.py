@@ -72,7 +72,15 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'MyBank.wsgi.application'
 
-LOGOUT_REDIRECT_URL = '/bank/homemain/'
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'mariachacko93@gmail.com'
+EMAIL_HOST_PASSWORD = 'mariamukulkalloor'
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'user'
+
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases

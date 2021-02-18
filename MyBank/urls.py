@@ -16,10 +16,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path,include
 from accounts.views import Homepagemain
+from django.contrib.auth import views as auth_views
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("bank/",include("accounts.urls")),
     path("",Homepagemain,name="homemain"),
     path("profile/",include("Profiles.urls")),
+
 ]
