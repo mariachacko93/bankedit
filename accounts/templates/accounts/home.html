@@ -7,7 +7,7 @@
 </head>
 <body>
 {%if user.is_authenticated%}
-<h2>Welcome {{request.user}}!!!</h2>
+<h2>Welcome {{request.user.first_name}} {{request.user.last_name}}!!!</h2>
 
 <hr>
 
