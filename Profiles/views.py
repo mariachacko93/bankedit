@@ -12,10 +12,13 @@ from django.views.generic.detail import DetailView
 from Profiles.forms import createProfileForm,TransferForm,withdrawForm
 from django.urls import reverse_lazy
 from Profiles.models import createProfileModel, AccountInfoModel,TransferModel
+from django.contrib.auth.mixins import LoginRequiredMixin
+
 # Create your views here.
 
 
-class CreateProfile(CreateView):
+class CreateProfile(LoginRequiredMixin,CreateView):
+
     form_class = createProfileForm
     # model=createProfileModel
     # fields="__all__"
@@ -31,7 +34,8 @@ def success(request):
 def profilesuccess(request):
     return render(request,"profiles/profilesuccess.html")
 
-class UpdateprofileView(UpdateView):
+class UpdateprofileView(LoginRequiredMixin,UpdateView):
+    # login_url = 'login'
     model=createProfileModel
     fields = ["address","date_of_birth","email_id","phonenumber","branch"]
     # form_class = createProfileForm
@@ -39,14 +43,14 @@ class UpdateprofileView(UpdateView):
     success_url = reverse_lazy('home')
     template_name = "profiles/updateprofile.html"
 
-class Deleteprofile(DeleteView):
+class Deleteprofile(LoginRequiredMixin,DeleteView):
     model = User
     fields="__all__"
     success_url = reverse_lazy('homemain')
     template_name = "profiles/deleteprofile.html"
 
 
-class ViewProfile(DetailView):
+class ViewProfile(LoginRequiredMixin,DetailView):
     model = createProfileModel
     fields="__all__"
     success_url = reverse_lazy('home')
@@ -72,14 +76,14 @@ def generateaccnoView(request):
         curr_user.save()
     return render(request, "profiles/generatesuccess.html", {"curr_user": curr_user})
 
-class AccountView(DetailView):
+class AccountView(LoginRequiredMixin,DetailView):
     model = AccountInfoModel
     fields=["accno","mpin","balance"]
     success_url = reverse_lazy('home')
     template_name = "profiles/accountview.html"
 
 
-class TransferView(View):
+class TransferView(LoginRequiredMixin,View):
     model = TransferModel
     template_name = "profiles/accounttransfer.html"
     context = {}
@@ -118,7 +122,7 @@ class TransferView(View):
             return render(request, self.template_name, self.context)
 
 
-class withdrawView(View):
+class withdrawView(LoginRequiredMixin,View):
     model = TransferModel
     template_name = "profiles/withdraw.html"
     context = {}
@@ -150,7 +154,7 @@ class withdrawView(View):
                 return render(request, self.template_name, self.context)
 
 
-class DepositView(View):
+class DepositView(LoginRequiredMixin,View):
     model = TransferModel()
     template_name = "profiles/deposit.html"
     context = {}

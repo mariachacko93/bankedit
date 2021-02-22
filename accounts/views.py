@@ -1,5 +1,6 @@
 from django.contrib.auth import login, authenticate
 from django.contrib import auth
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.models import User
 from django.contrib.auth.views import LoginView,LogoutView
 from django.core.exceptions import ValidationError
@@ -61,7 +62,7 @@ class Signin(LoginView):
 # def Homepage(request):
 #     return render(request,"accounts/home.html")
 
-class Homepage(View):
+class Homepage(LoginRequiredMixin,View):
     template_name = 'accounts/home.html'
     def get(self, request):
         context={}

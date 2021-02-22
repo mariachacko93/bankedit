@@ -72,6 +72,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'MyBank.wsgi.application'
 
+LOGIN_URL = 'login'
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
