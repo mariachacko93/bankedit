@@ -32,3 +32,14 @@ class AccountInfoModel(models.Model):
 
     # def get_absolute_url(self):
     #     return reverse('success', kwargs={'slug':self.slug})
+
+class TransferModel(models.Model):
+    mpin=models.CharField(max_length=4)
+    accno=models.CharField(max_length=6)
+    amount=models.IntegerField()
+
+    def __str__(self):
+        return  self.accno
+
+    # def get_absolute_url(self):
+    #     return reverse('success', kwargs={'slug':self.slug})
