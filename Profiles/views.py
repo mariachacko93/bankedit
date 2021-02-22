@@ -9,14 +9,10 @@ from django.views import View
 from django.views.generic import CreateView, ListView, FormView, DeleteView, TemplateView, RedirectView
 from django.views.generic.edit import UpdateView
 from django.views.generic.detail import DetailView
-
-
-# Create your views here.
 from Profiles.forms import createProfileForm,TransferForm,withdrawForm,depositForm
 from django.urls import reverse_lazy, reverse
 from Profiles.models import createProfileModel, AccountInfoModel,TransferModel
-
-from django.shortcuts import get_object_or_404
+# Create your views here.
 
 
 class CreateProfile(CreateView):
@@ -28,6 +24,7 @@ class CreateProfile(CreateView):
 
     def get_initial(self):
          return {'user': self.request.user}
+
 def success(request):
     return render(request,"profiles/success.html")
 
@@ -41,7 +38,7 @@ class UpdateprofileView(UpdateView):
     # fields = "__all__"
     success_url = reverse_lazy('home')
     template_name = "profiles/updateprofile.html"
-# #
+
 class Deleteprofile(DeleteView):
     model = User
     fields="__all__"
@@ -63,11 +60,9 @@ def randomGen1():
     return int(random.uniform(1000, 9999))
 
 def generateaccnoView(request):
-    context = {}
     try:
         curr_user = AccountInfoModel.objects.get(username=request.user)  # getting details of current user
     except:
-        # if no details exist (new user), create new details
         curr_user = AccountInfoModel()
         curr_user.accno = randomGen()  # random account number for every new user
         curr_user.mpin = randomGen1()
@@ -82,7 +77,8 @@ class AccountView(DetailView):
     fields=["accno","mpin","balance"]
     success_url = reverse_lazy('home')
     template_name = "profiles/accountview.html"
-####
+
+
 class TransferView(View):
     model = TransferModel
     template_name = "profiles/accounttransfer.html"
@@ -122,13 +118,19 @@ class TransferView(View):
             return render(request, self.template_name, self.context)
 
 
-def withdrawAmount(request):
-        form = withdrawForm()
-        context = {}
-        context["form"] = form
-        if request.method == "POST":
-            form = withdrawForm(request.POST)
-            if form.is_valid():
+class withdrawView(View):
+    model = TransferModel
+    template_name = "profiles/withdraw.html"
+    context = {}
+    def get(self, request, *args, **kwargs):
+        form=withdrawForm()
+        self.context["form"]=form
+        return render(request, self.template_name, self.context)
+
+    def post(self, request, *args, **kwargs):
+        self.context={}
+        form=withdrawForm(request.POST)
+        if form.is_valid():
                 mpin = form.cleaned_data.get("mpin")
                 amount = form.cleaned_data.get("amount")
                 try:
@@ -138,24 +140,29 @@ def withdrawAmount(request):
                     object.save()
 
                 except Exception:
-                    context["form"] = form
-                    return render(request, "profiles/withdraw.html", context)
+                    self.context["form"] = form
+                    return render(request, self.template_name, self.context)
 
                 form.save()
-
                 return redirect("home")
-            else:
-                context["form"] = form
-                return render(request, "profiles/withdraw.html", context)
+        else:
+                self.context["form"] = form
+                return render(request, self.template_name, self.context)
 
-        return render(request, "profiles/withdraw.html", context)
 
-def DepositView(request):
-    form = depositForm()
+class DepositView(View):
+    model = TransferModel()
+    template_name = "profiles/deposit.html"
     context = {}
-    context["form"] = form
-    if request.method == "POST":
-        form = depositForm(request.POST)
+
+    def get(self, request, *args, **kwargs):
+        form=withdrawForm()
+        self.context["form"]=form
+        return render(request, self.template_name, self.context)
+
+    def post(self, request, *args, **kwargs):
+        self.context={}
+        form=withdrawForm(request.POST)
         if form.is_valid():
             mpin = form.cleaned_data.get("mpin")
             amount = form.cleaned_data.get("amount")
@@ -166,15 +173,13 @@ def DepositView(request):
                 object.save()
 
             except Exception:
-                context["form"] = form
-                return render(request, "profiles/deposit.html", context)
+                self.context["form"] = form
+                return render(request, self.template_name, self.context)
 
             form.save()
-
             return redirect("home")
         else:
-            context["form"] = form
-            return render(request, "profiles/deposit.html", context)
+                self.context["form"] = form
+                return render(request, self.template_name, self.context)
 
-    return render(request, "profiles/deposit.html", context)
-
+        return render(request, self.template_name, self.context)
