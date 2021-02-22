@@ -14,7 +14,7 @@ from django.views.generic.detail import DetailView
 # Create your views here.
 from Profiles.forms import createProfileForm,TransferForm,withdrawForm,depositForm
 from django.urls import reverse_lazy, reverse
-from Profiles.models import createProfileModel, AccountInfoModel
+from Profiles.models import createProfileModel, AccountInfoModel,TransferModel
 
 from django.shortcuts import get_object_or_404
 
@@ -82,40 +82,45 @@ class AccountView(DetailView):
     fields=["accno","mpin","balance"]
     success_url = reverse_lazy('home')
     template_name = "profiles/accountview.html"
+####
+class TransferView(View):
+    model = TransferModel
+    template_name = "profiles/accounttransfer.html"
+    context = {}
+    def get(self, request, *args, **kwargs):
+        form=TransferForm()
+        self.context["form"]=form
+        return render(request, self.template_name, self.context)
 
-def transfer(request):
-    form=TransferForm()
-    context={}
-    context["form"]=form
-    if request.method=="POST":
+    def post(self, request, *args, **kwargs):
         form=TransferForm(request.POST)
+        self.context={}
         if form.is_valid():
-            mpin=form.cleaned_data.get("mpin")
-            amount=form.cleaned_data.get("amount")
-            accno=form.cleaned_data.get("accno")
+            mpin = form.cleaned_data.get("mpin")
+            amount = form.cleaned_data.get("amount")
+            accno = form.cleaned_data.get("accno")
             try:
-                object=AccountInfoModel.objects.get(mpin=mpin)
-                bal=object.balance-amount
-                object.balance=bal
+                object = AccountInfoModel.objects.get(mpin=mpin)
+                bal = object.balance - amount
+                object.balance = bal
                 object.save()
                 object1 = AccountInfoModel.objects.get(accno=accno)
-                bal1=object1.balance+amount
-                object1.balance=bal1
+                bal1 = object1.balance + amount
+                object1.balance = bal1
                 object1.save()
 
             except Exception:
-                context["form"] = form
-                return render(request, "profiles/accounttransfer.html", context)
+
+                self.context["form"] = form
+                return render(request, self.template_name, self.context)
 
             form.save()
 
-
             return redirect("home")
         else:
-            context["form"]=form
-            return render(request, "profiles/accounttransfer.html", context)
+            self.context["form"] = form
+            return render(request, self.template_name, self.context)
 
-    return render(request,"profiles/accounttransfer.html",context)
 
 def withdrawAmount(request):
         form = withdrawForm()
