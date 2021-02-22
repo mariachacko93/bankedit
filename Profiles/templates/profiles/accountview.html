@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>accountview</title>
+</head>
+<body>
+
+<table style="width:100%;border-spacing:5px;border:1px solid black;">
+
+            <th>Name:</th> <td>{{request.user.first_name}} {{request.user.last_name}}</td></tr>
+<tr>
+        <th>Account Number:</th> <td>{{object.accno}}</td></tr>
+  <tr>
+        <th>Mpin</th><td>{{object.mpin}}</td>
+</tr>
+      <tr>
+        <th>IFS code:</th><td> {{object.ifs_code}}</td>
+</tr>
+    <tr>
+        <th>Balance</th><td>{{object.balance}}</td>
+    </tr>
+
+     <tr>
+
+</table>
+<a href="{%url 'home'%}">back to Home</a>
+
+
+</body>
+</html>

@@ -10,7 +10,10 @@ Are you sure you want to delete your Account?
     {% csrf_token %}
     {{ form.as_p }}
     <button type="submit">Confirm</button>
+
   </form>
+<hr>
+<a href="{%url 'home'%}">back to Home</a>
 
 </body>
 </html>

@@ -10,7 +10,7 @@ class createProfileModel(models.Model):
     date_of_birth=models.DateField()
     email_id=models.EmailField(max_length=120)
     phonenumber=models.IntegerField(unique=True)
-
+    branch=models.CharField(max_length=120)
 
     def __str__(self):
         return self.phonenumber
@@ -18,3 +18,17 @@ class createProfileModel(models.Model):
 
     def get_absolute_url(self):
         return reverse('success', kwargs={'slug': self.slug})
+
+
+class AccountInfoModel(models.Model):
+    username=models.ForeignKey(User,on_delete=models.CASCADE)
+    accno=models.CharField(max_length=120,unique=True)
+    balance=models.IntegerField()
+    mpin=models.IntegerField(unique=True)
+    ifs_code=models.CharField(max_length=12)
+
+    def __str__(self):
+        return self.balance
+
+    # def get_absolute_url(self):
+    #     return reverse('success', kwargs={'slug':self.slug})

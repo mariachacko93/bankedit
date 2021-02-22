@@ -17,7 +17,7 @@ Including another URLconf
 
 from django.urls import path
 
-from Profiles.views import CreateProfile,success,UpdateprofileView,Deleteprofile,ViewProfile
+from Profiles.views import CreateProfile,AccountView,success,UpdateprofileView,Deleteprofile,ViewProfile,generateaccnoView,profilesuccess
 
 urlpatterns = [
     path("createprofile/",CreateProfile.as_view(),name="createprofile"),
@@ -25,5 +25,7 @@ urlpatterns = [
     path("success/",success,name="success"),
     path("delete/<int:pk>/",Deleteprofile.as_view(),name="delete"),
     path("viewprofile/<int:pk>/", ViewProfile.as_view(), name="viewprofile"),
-
+    path("generate/", generateaccnoView, name="generate"),
+    path("profilesuccess/", profilesuccess, name="profilesuccess"),
+    path("accview/<int:pk>",AccountView.as_view(),name="accview")
 ]

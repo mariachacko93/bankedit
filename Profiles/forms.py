@@ -1,6 +1,6 @@
 
 from django.forms import ModelForm
-from Profiles.models import createProfileModel
+from Profiles.models import createProfileModel,AccountInfoModel
 from django import forms
 
 class createProfileForm(ModelForm):
@@ -9,3 +9,8 @@ class createProfileForm(ModelForm):
         model=createProfileModel
         fields="__all__"
         widgets={"user":forms.HiddenInput(),}
+
+# class DepositForm(ModelForm):
+#     class Meta:
+#         model=AccountInfoModel
+#         fields=[""]

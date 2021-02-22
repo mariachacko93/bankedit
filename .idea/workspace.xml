@@ -11,13 +11,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e4158b1b-c274-4b39-a2e1-a7bff9d8a994" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/accounts/static/images/im.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyBank/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/MyBank/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyBank/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/MyBank/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Profiles/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/Profiles/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Profiles/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Profiles/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/Profiles/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Profiles/templates/profiles/deleteprofile.html" beforeDir="false" afterPath="$PROJECT_DIR$/Profiles/templates/profiles/deleteprofile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Profiles/templates/profiles/viewprofile.html" beforeDir="false" afterPath="$PROJECT_DIR$/Profiles/templates/profiles/viewprofile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Profiles/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Profiles/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Profiles/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Profiles/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/accounts/templates/accounts/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/templates/accounts/home.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/accounts/templates/accounts/homemain.html" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/templates/accounts/homemain.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/templates/accounts/signin.html" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/templates/accounts/signin.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -45,16 +50,19 @@
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/accounts/static/images" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\MUKUL SEBASTIAN\Focaloid Projects\Mybank\MyBank\Profiles\templates" />
-      <recent name="C:\Users\MUKUL SEBASTIAN\Focaloid Projects\Mybank\MyBank\accounts\templates\accounts" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\MUKUL SEBASTIAN\Focaloid Projects\bankclass\accounts\static\images" />
+      <recent name="C:\Users\MUKUL SEBASTIAN\Focaloid Projects\bankclass\accounts\static" />
       <recent name="C:\Users\MUKUL SEBASTIAN\Focaloid Projects\Mybank\MyBank\Profiles" />
       <recent name="C:\Users\MUKUL SEBASTIAN\Focaloid Projects\Mybank\MyBank\accounts" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\MUKUL SEBASTIAN\Focaloid Projects\bankclass\accounts\static\images" />
+      <recent name="C:\Users\MUKUL SEBASTIAN\Focaloid Projects\Mybank\MyBank\Profiles\templates" />
+      <recent name="C:\Users\MUKUL SEBASTIAN\Focaloid Projects\Mybank\MyBank\accounts\templates\accounts" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -81,10 +89,10 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="442" y="166" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1613468338560">
+    <state x="442" y="166" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1613729883301">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="442" y="166" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728@0.0.1366.728" timestamp="1613468338560" />
+    <state x="442" y="166" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728@0.0.1366.728" timestamp="1613729883301" />
     <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1613556482147">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
