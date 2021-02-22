@@ -1,16 +1,16 @@
 import random
 
-from django.contrib.auth import logout
-from django.contrib import messages
-from django.contrib.auth.decorators import login_required
+# from django.contrib.auth import logout
+# from django.contrib import messages
+# from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 from django.views import View
-from django.views.generic import CreateView, ListView, FormView, DeleteView, TemplateView, RedirectView
+from django.views.generic import CreateView,DeleteView
 from django.views.generic.edit import UpdateView
 from django.views.generic.detail import DetailView
-from Profiles.forms import createProfileForm,TransferForm,withdrawForm,depositForm
-from django.urls import reverse_lazy, reverse
+from Profiles.forms import createProfileForm,TransferForm,withdrawForm
+from django.urls import reverse_lazy
 from Profiles.models import createProfileModel, AccountInfoModel,TransferModel
 # Create your views here.
 
