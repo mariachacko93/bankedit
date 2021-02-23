@@ -34,6 +34,7 @@ class AccountInfoModel(models.Model):
     #     return reverse('success', kwargs={'slug':self.slug})
 
 class TransferModel(models.Model):
+    # user=models.OneToOneField(User,on_delete=models.CASCADE)
     mpin=models.CharField(max_length=4)
     accno=models.CharField(max_length=6)
     amount=models.IntegerField()

@@ -11,19 +11,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e4158b1b-c274-4b39-a2e1-a7bff9d8a994" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/accounts/static/images/im.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyBank/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/MyBank/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Profiles/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/Profiles/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Profiles/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Profiles/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/Profiles/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Profiles/templates/profiles/deleteprofile.html" beforeDir="false" afterPath="$PROJECT_DIR$/Profiles/templates/profiles/deleteprofile.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Profiles/templates/profiles/viewprofile.html" beforeDir="false" afterPath="$PROJECT_DIR$/Profiles/templates/profiles/viewprofile.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Profiles/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Profiles/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Profiles/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Profiles/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/templates/accounts/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/templates/accounts/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/templates/accounts/homemain.html" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/templates/accounts/homemain.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,7 +39,7 @@
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/accounts/static/images" />
+    <property name="last_opened_file_path" value="$USER_HOME$/PycharmProjects/dajngofull/customized class/recipeclassbasedview" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -93,9 +82,13 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="442" y="166" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728@0.0.1366.728" timestamp="1613729883301" />
-    <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1613556482147">
+    <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1614059008138">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1613556482147" />
+    <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1614059008138" />
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1613998296662">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1613998296662" />
   </component>
 </project>

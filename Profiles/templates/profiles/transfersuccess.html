@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>transfersuccess</title>
+</head>
+<body>
+<table style="width:100%;border-spacing:5px;border:1px solid black;">
+<tr><td>
+<h2>Dear {{request.user.first_name}} {{request.user.last_name}},</h2>
+    <h2>    Amount INR {{amount}} has been transferred successfully to Account no: {{accno.accno}}.</h2>
+</td></tr>
+</table>
+<hr>
+<a href="{%url 'home'%}">back to Home</a>
+
+</body>
+</html>

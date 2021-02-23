@@ -1,14 +1,19 @@
 
-from django.forms import ModelForm
+from django.forms import ModelForm, DateInput
 from Profiles.models import createProfileModel,AccountInfoModel,TransferModel
 from django import forms
+
+class DateInput(forms.DateInput):
+    input_type = 'date'
 
 class createProfileForm(ModelForm):
     # user = forms.CharField(widget=forms.TextInput(attrs={'readonly':'readonly'}))
     class Meta:
         model=createProfileModel
         fields="__all__"
-        widgets={"user":forms.HiddenInput(),}
+        widgets={"user":forms.HiddenInput(),
+                 "email_id": forms.EmailInput(),
+                 'date_of_birth': DateInput()}
 
 # class DepositForm(ModelForm):
 #     class Meta:
@@ -20,7 +25,8 @@ class TransferForm(ModelForm):
     class Meta:
         model=TransferModel
         fields="__all__"
-        widgets={"user":forms.HiddenInput(),}
+        widgets={
+                 "mpin": forms.PasswordInput(),}
 
     def clean(self):
         cleaned_data=super().clean()
@@ -54,8 +60,13 @@ class withdrawForm(ModelForm):
     class Meta:
         model = TransferModel
         fields =["amount","mpin"]
+        widgets={
+                 "mpin": forms.PasswordInput(),}
+
 
 class depositForm(ModelForm):
     class Meta:
         model = TransferModel
         fields =["amount","mpin"]
+        widgets={
+                 "mpin": forms.PasswordInput(),}

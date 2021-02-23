@@ -2,7 +2,7 @@ import random
 
 # from django.contrib.auth import logout
 # from django.contrib import messages
-# from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 from django.views import View
@@ -82,15 +82,37 @@ class AccountView(LoginRequiredMixin,DetailView):
     success_url = reverse_lazy('home')
     template_name = "profiles/accountview.html"
 
+from django.views.generic import TemplateView
+
+class amountView(TemplateView):
+    model=TransferModel
+    template_name = "profiles/transfersuccess.html"
+    context = {}
+
+    def get_object_set(self):
+        return self.model.objects.all()
 
 class TransferView(LoginRequiredMixin,View):
     model = TransferModel
     template_name = "profiles/accounttransfer.html"
     context = {}
+
     def get(self, request, *args, **kwargs):
+
+        # try:
+        #     uid= createProfileModel.objects.get(user=request.user).id
+        #     print(uid,type(uid))
+        #     form=createProfileForm
+        #     if form.is_valid():
+        #
+        #         if uid:
+        #             request.session['uid'] = uid
+
         form=TransferForm()
         self.context["form"]=form
         return render(request, self.template_name, self.context)
+
+
 
     def post(self, request, *args, **kwargs):
         form=TransferForm(request.POST)
@@ -108,6 +130,8 @@ class TransferView(LoginRequiredMixin,View):
                 bal1 = object1.balance + amount
                 object1.balance = bal1
                 object1.save()
+                self.context["amount"]=amount
+                self.context["accno"]=object1
 
             except Exception:
 
@@ -115,12 +139,16 @@ class TransferView(LoginRequiredMixin,View):
                 return render(request, self.template_name, self.context)
 
             form.save()
+            return render(request, "profiles/transfersuccess.html", self.context)
 
-            return redirect("home")
+            # return redirect("transfers")
         else:
             self.context["form"] = form
             return render(request, self.template_name, self.context)
 
+@login_required
+def transfersuccess(request):
+    return render(request,"profiles/transfersuccess.html")
 
 class withdrawView(LoginRequiredMixin,View):
     model = TransferModel
@@ -142,17 +170,23 @@ class withdrawView(LoginRequiredMixin,View):
                     bal = object.balance - amount
                     object.balance = bal
                     object.save()
+                    self.context["amount"]=amount
 
                 except Exception:
                     self.context["form"] = form
                     return render(request, self.template_name, self.context)
 
                 form.save()
-                return redirect("home")
+                return render(request,"profiles/withdrawsuccess.html", self.context)
+
+                # return redirect("home")
         else:
                 self.context["form"] = form
                 return render(request, self.template_name, self.context)
 
+@login_required
+def withdrawsuccess(request):
+    return render(request,"profiles/withdrawsuccess.html")
 
 class DepositView(LoginRequiredMixin,View):
     model = TransferModel()
@@ -175,15 +209,22 @@ class DepositView(LoginRequiredMixin,View):
                 bal = object.balance + amount
                 object.balance = bal
                 object.save()
+                self.context["amount"] = amount
 
             except Exception:
                 self.context["form"] = form
                 return render(request, self.template_name, self.context)
 
             form.save()
-            return redirect("home")
+            return render(request, "profiles/depositsucces.html", self.context)
+
+            # return redirect("home")
         else:
                 self.context["form"] = form
                 return render(request, self.template_name, self.context)
 
         return render(request, self.template_name, self.context)
+
+@login_required
+def depositsuccess(request):
+    return render(request,"profiles/depositsuccess.html")

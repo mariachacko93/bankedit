@@ -18,7 +18,7 @@ Including another URLconf
 from django.urls import path
 
 from Profiles.views import CreateProfile, AccountView, success, UpdateprofileView, Deleteprofile, ViewProfile, \
-    generateaccnoView,profilesuccess,TransferView,withdrawView,DepositView
+    generateaccnoView,profilesuccess,TransferView,withdrawView,DepositView,transfersuccess,depositsuccess,withdrawsuccess
 
 urlpatterns = [
     path("createprofile/",CreateProfile.as_view(),name="createprofile"),
@@ -33,4 +33,8 @@ urlpatterns = [
     path("withdraw", withdrawView.as_view(), name="withdraw"),
 
     path("deposit", DepositView.as_view(), name="deposit"),
+    path("transfersuccess", transfersuccess, name="transfers"),
+    path("withdrawsuccess", withdrawsuccess, name="withdraws"),
+    path("depositsuccess", depositsuccess, name="deposits"),
+
 ]
