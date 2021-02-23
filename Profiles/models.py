@@ -39,6 +39,7 @@ class TransferModel(models.Model):
     accno=models.CharField(max_length=6)
     amount=models.IntegerField()
 
+
     def __str__(self):
         return  self.accno
 

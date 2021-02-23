@@ -6,7 +6,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 from django.views import View
-from django.views.generic import CreateView,DeleteView
+from django.views.generic import CreateView,DeleteView,ListView
 from django.views.generic.edit import UpdateView
 from django.views.generic.detail import DetailView
 from Profiles.forms import createProfileForm,TransferForm,withdrawForm
@@ -228,3 +228,12 @@ class DepositView(LoginRequiredMixin,View):
 @login_required
 def depositsuccess(request):
     return render(request,"profiles/depositsuccess.html")
+
+
+class accountActivity(ListView):
+    model=TransferModel
+    template_name = "profiles/activity.html"
+
+    def query_set(self):
+        mpin=AccountInfoModel.objects.get(username=self.request.user).mpin
+        return self.model.objects.filter(mpin=mpin)
