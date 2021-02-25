@@ -252,12 +252,11 @@ class DepositView(LoginRequiredMixin,View):
 def depositsuccess(request):
     return render(request,"profiles/depositsuccess.html")
 
-class accountActivity(ListView):
+class accountActivity(LoginRequiredMixin,ListView):
     model=TransferModel
     # form_class=TransferForm
     # fields=["accno","amount","date","user"]
     fields="__all__"
-
     template_name = "profiles/activity.html"
 
     def get_initial(self):
@@ -268,6 +267,4 @@ class accountActivity(ListView):
         mpin=AccountInfoModel.objects.get(username=self.request.user).mpin
         # print(type(mpin))
         return TransferModel.objects.filter(mpin=mpin)
-        # context["trans"]=trans
-        # return render(request,"profiles/activity.html",context)
 

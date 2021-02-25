@@ -33,6 +33,10 @@ class SignUpView(CreateView):
 
 class Signin(LoginView):
     def get(self, request):
+        if request.method == "GET":
+            if (User.objects.filter(username=request.GET.get("username"), password=request.GET.get("password"))).exists():
+                user = User.objects.get(username=request.GET.get("username"), password=request.GET.get("password"))
+                request.session["user"] = user.id
         return render(request, 'accounts/signin.html', { 'form':  AuthenticationForm })
 
     def post(self, request):
@@ -66,6 +70,7 @@ class Homepage(LoginRequiredMixin,View):
     template_name = 'accounts/home.html'
     def get(self, request):
         context={}
+
         try:
             uid= User.objects.get(username=request.user).id
             # print(uid,type(uid))

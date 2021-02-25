@@ -76,7 +76,7 @@ class withdrawForm(ModelForm):
 
 class BalanceForm(ModelForm):
     class Meta:
-        model = TransferModel
+        model =  TransferModel
         fields =["mpin"]
         widgets={
             # 'mpin': forms.HiddenInput(),
