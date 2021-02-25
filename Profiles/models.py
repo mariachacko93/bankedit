@@ -1,7 +1,8 @@
 from django.contrib.auth.models import User
 from django.db import models
 from django.urls import reverse
-
+from datetime import date
+import datetime
 # Create your models here.
 
 class createProfileModel(models.Model):
@@ -11,6 +12,7 @@ class createProfileModel(models.Model):
     email_id=models.EmailField(max_length=120)
     phonenumber=models.IntegerField(unique=True)
     branch=models.CharField(max_length=120)
+
 
     def __str__(self):
         return self.phonenumber
@@ -34,11 +36,11 @@ class AccountInfoModel(models.Model):
     #     return reverse('success', kwargs={'slug':self.slug})
 
 class TransferModel(models.Model):
-    # user=models.OneToOneField(User,on_delete=models.CASCADE)
+    user=models.ForeignKey(User,on_delete=models.CASCADE)
     mpin=models.CharField(max_length=4)
-    accno=models.CharField(max_length=6)
+    accno=models.CharField(max_length=8,default="Self")
     amount=models.IntegerField()
-
+    date=models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return  self.accno

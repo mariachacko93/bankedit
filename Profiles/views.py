@@ -6,10 +6,10 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 from django.views import View
-from django.views.generic import CreateView,DeleteView,ListView
+from django.views.generic import CreateView, DeleteView, ListView, FormView, TemplateView
 from django.views.generic.edit import UpdateView
 from django.views.generic.detail import DetailView
-from Profiles.forms import createProfileForm,TransferForm,withdrawForm
+from Profiles.forms import createProfileForm,TransferForm,withdrawForm,BalanceForm
 from django.urls import reverse_lazy
 from Profiles.models import createProfileModel, AccountInfoModel,TransferModel
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -38,8 +38,6 @@ class UpdateprofileView(LoginRequiredMixin,UpdateView):
     # login_url = 'login'
     model=createProfileModel
     fields = ["address","date_of_birth","email_id","phonenumber","branch"]
-    # form_class = createProfileForm
-    # fields = "__all__"
     success_url = reverse_lazy('home')
     template_name = "profiles/updateprofile.html"
 
@@ -74,6 +72,8 @@ def generateaccnoView(request):
         curr_user.balance = 2000
         curr_user.username = request.user
         curr_user.save()
+        # request.session["accno"]=curr_user.accno
+        # request.session["mpin"]=curr_user.mpin
     return render(request, "profiles/generatesuccess.html", {"curr_user": curr_user})
 
 class AccountView(LoginRequiredMixin,DetailView):
@@ -82,31 +82,26 @@ class AccountView(LoginRequiredMixin,DetailView):
     success_url = reverse_lazy('home')
     template_name = "profiles/accountview.html"
 
-from django.views.generic import TemplateView
 
-class amountView(TemplateView):
-    model=TransferModel
-    template_name = "profiles/transfersuccess.html"
-    context = {}
+class balanceEnquiry(DetailView):
+    model = AccountInfoModel
+    fields = ["balance"]
+    # success_url = reverse_lazy('home')
+    template_name = "profiles/balance.html"
 
-    def get_object_set(self):
-        return self.model.objects.all()
+
 
 class TransferView(LoginRequiredMixin,View):
-    model = TransferModel
+    # model = TransferModel
+    form=TransferForm()
+    fields=["accno","amount","mpin"]
     template_name = "profiles/accounttransfer.html"
     context = {}
 
-    def get(self, request, *args, **kwargs):
+    def get_initial(self):
+        return {'user': self.request.user}
 
-        # try:
-        #     uid= createProfileModel.objects.get(user=request.user).id
-        #     print(uid,type(uid))
-        #     form=createProfileForm
-        #     if form.is_valid():
-        #
-        #         if uid:
-        #             request.session['uid'] = uid
+    def get(self, request, *args, **kwargs):
 
         form=TransferForm()
         self.context["form"]=form
@@ -137,8 +132,12 @@ class TransferView(LoginRequiredMixin,View):
 
                 self.context["form"] = form
                 return render(request, self.template_name, self.context)
+            profile = form.save(commit=False)
+            profile.user = request.user
+            profile.save()
 
-            form.save()
+
+            # form.save()
             return render(request, "profiles/transfersuccess.html", self.context)
 
             # return redirect("transfers")
@@ -151,9 +150,17 @@ def transfersuccess(request):
     return render(request,"profiles/transfersuccess.html")
 
 class withdrawView(LoginRequiredMixin,View):
-    model = TransferModel
+    # model = TransferModel
+    form = withdrawForm()
+    fields = [ "amount", "mpin","user"]
+
+    def get_initial(self):
+        return {'user': self.request.user}
+
     template_name = "profiles/withdraw.html"
     context = {}
+
+
     def get(self, request, *args, **kwargs):
         form=withdrawForm()
         self.context["form"]=form
@@ -176,7 +183,11 @@ class withdrawView(LoginRequiredMixin,View):
                     self.context["form"] = form
                     return render(request, self.template_name, self.context)
 
-                form.save()
+                # not null error
+                profile = form.save(commit=False)
+                profile.user = request.user
+                profile.save()
+                # form.save()
                 return render(request,"profiles/withdrawsuccess.html", self.context)
 
                 # return redirect("home")
@@ -189,9 +200,14 @@ def withdrawsuccess(request):
     return render(request,"profiles/withdrawsuccess.html")
 
 class DepositView(LoginRequiredMixin,View):
-    model = TransferModel()
+    # model = TransferModel()
+    form = TransferForm()
+    fields = ["amount", "mpin","user"]
     template_name = "profiles/deposit.html"
     context = {}
+
+    def get_initial(self):
+        return {'user': self.request.user}
 
     def get(self, request, *args, **kwargs):
         form=withdrawForm()
@@ -204,6 +220,8 @@ class DepositView(LoginRequiredMixin,View):
         if form.is_valid():
             mpin = form.cleaned_data.get("mpin")
             amount = form.cleaned_data.get("amount")
+            # date=form.cleaned_data.get("date")
+
             try:
                 object = AccountInfoModel.objects.get(mpin=mpin)
                 bal = object.balance + amount
@@ -215,7 +233,12 @@ class DepositView(LoginRequiredMixin,View):
                 self.context["form"] = form
                 return render(request, self.template_name, self.context)
 
-            form.save()
+            # code for not null :assigning to another variable
+            profile = form.save(commit=False)
+            profile.user = request.user
+            profile.save()
+
+            # form.save()
             return render(request, "profiles/depositsucces.html", self.context)
 
             # return redirect("home")
@@ -223,17 +246,28 @@ class DepositView(LoginRequiredMixin,View):
                 self.context["form"] = form
                 return render(request, self.template_name, self.context)
 
-        return render(request, self.template_name, self.context)
+        # return render(request, self.template_name, self.context)
 
 @login_required
 def depositsuccess(request):
     return render(request,"profiles/depositsuccess.html")
 
-
 class accountActivity(ListView):
     model=TransferModel
+    # form_class=TransferForm
+    # fields=["accno","amount","date","user"]
+    fields="__all__"
+
     template_name = "profiles/activity.html"
 
-    def query_set(self):
+    def get_initial(self):
+         return {'user': self.request.user}
+
+    def get_queryset(self):
+        context={}
         mpin=AccountInfoModel.objects.get(username=self.request.user).mpin
-        return self.model.objects.filter(mpin=mpin)
+        # print(type(mpin))
+        return TransferModel.objects.filter(mpin=mpin)
+        # context["trans"]=trans
+        # return render(request,"profiles/activity.html",context)
+

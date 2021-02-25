@@ -7,11 +7,11 @@ class DateInput(forms.DateInput):
     input_type = 'date'
 
 class createProfileForm(ModelForm):
-    # user = forms.CharField(widget=forms.TextInput(attrs={'readonly':'readonly'}))
     class Meta:
         model=createProfileModel
         fields="__all__"
-        widgets={"user":forms.HiddenInput(),
+        widgets={
+                 "user":forms.HiddenInput(),
                  "email_id": forms.EmailInput(),
                  'date_of_birth': DateInput()}
 
@@ -21,11 +21,11 @@ class createProfileForm(ModelForm):
 #         fields=[""]
 
 class TransferForm(ModelForm):
-    # user = forms.CharField(widget=forms.TextInput(attrs={'readonly':'readonly'}))
     class Meta:
         model=TransferModel
-        fields="__all__"
+        fields=["accno","amount","mpin"]
         widgets={
+            'date': forms.HiddenInput(),
                  "mpin": forms.PasswordInput(),}
 
     def clean(self):
@@ -61,12 +61,24 @@ class withdrawForm(ModelForm):
         model = TransferModel
         fields =["amount","mpin"]
         widgets={
+            'date': forms.HiddenInput(),
                  "mpin": forms.PasswordInput(),}
 
 
-class depositForm(ModelForm):
+# class depositForm(ModelForm):
+#     class Meta:
+#         model = TransferModel
+#         fields =["amount","mpin"]
+#         widgets={
+#             'date': forms.HiddenInput(),
+#
+#             "mpin": forms.PasswordInput(),}
+
+class BalanceForm(ModelForm):
     class Meta:
         model = TransferModel
-        fields =["amount","mpin"]
+        fields =["mpin"]
         widgets={
-                 "mpin": forms.PasswordInput(),}
+            # 'mpin': forms.HiddenInput(),
+                 "mpin": forms.PasswordInput(),
+        }

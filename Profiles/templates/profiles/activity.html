@@ -5,10 +5,16 @@
     <title>activity</title>
 </head>
 <body>
-{%for i in object_list%}
-Transferred to Accno :{{i.accno}}<br>
-transferred Amount : {{i.amount}}<br>
+<h2>Your Account Activity</h2>
+{%for trans in object_list%}
+Accno :{{trans.accno}}<br>
+Amount : {{trans.amount}}<br>
+date :{{trans.date}}
 <hr>
 {%endfor%}
+
+<hr>
+<a href="{%url 'home'%}">back to Home</a>
+
 </body>
 </html>

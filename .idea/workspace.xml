@@ -12,7 +12,20 @@
   <component name="ChangeListManager">
     <list default="true" id="e4158b1b-c274-4b39-a2e1-a7bff9d8a994" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Profiles/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/Profiles/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Profiles/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Profiles/migrations/0002_auto_20210219_1631.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Profiles/migrations/0003_transfermodel.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Profiles/migrations/0004_auto_20210222_1019.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Profiles/migrations/0005_remove_transfermodel_user.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Profiles/migrations/0006_auto_20210222_1124.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Profiles/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/Profiles/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Profiles/templates/profiles/accountview.html" beforeDir="false" afterPath="$PROJECT_DIR$/Profiles/templates/profiles/accountview.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Profiles/templates/profiles/activity.html" beforeDir="false" afterPath="$PROJECT_DIR$/Profiles/templates/profiles/activity.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Profiles/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Profiles/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Profiles/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Profiles/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/accounts/templates/accounts/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/templates/accounts/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,7 +52,7 @@
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$/PycharmProjects/dajngofull/customized class/recipeclassbasedview" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../function bank/FoacloidBankProject" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -78,14 +91,14 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="442" y="166" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1613729883301">
+    <state x="442" y="166" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1614235037888">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="442" y="166" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728@0.0.1366.728" timestamp="1613729883301" />
-    <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1614059008138">
+    <state x="442" y="166" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728@0.0.1366.728" timestamp="1614235037888" />
+    <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1614155824814">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1614059008138" />
+    <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1614155824814" />
     <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1613998296662">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
